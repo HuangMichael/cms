@@ -61,6 +61,7 @@ public class PavilionAuthorService extends BaseService {
     /**
      * @param filePath
      * @param recordId
+     * 写入上传日志
      */
     @Override
     public void writeUploadLog(String filePath, Long recordId) {
