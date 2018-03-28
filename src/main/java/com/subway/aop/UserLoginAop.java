@@ -64,7 +64,7 @@ public class UserLoginAop {
         if (user.getPassword() == null || user.getPassword().equals("")) {
             user.setPassword("e10adc3949ba59abbe56e057f20f883e");
         }
-        user.setAuthKey("BJ10");
+        user.setAuthKey("01");
         user.setStatus(ConstantUtils.STATUS_YES);
         log.info("set authKey before save");
     }

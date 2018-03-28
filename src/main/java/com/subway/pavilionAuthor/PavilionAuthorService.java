@@ -1,24 +1,15 @@
 package com.subway.pavilionAuthor;
 
-import java.util.List;
-import java.util.Map;
-
-import com.subway.member.Member;
-import com.subway.memberWorks.MemberWorks;
 import com.subway.object.ReturnObject;
 import com.subway.service.app.BaseService;
 import com.subway.service.commonData.CommonDataService;
 import com.subway.utils.ConstantUtils;
-import com.subway.utils.UploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
+
+import static com.subway.utils.ConstantUtils.*;
 
 /**
- * 展馆作者信息业务类
  *
  * @author huangbin
  * @generate by autoCode
@@ -36,23 +27,6 @@ public class PavilionAuthorService extends BaseService {
     CommonDataService commonDataService;
 
     /**
-     * @return
-     */
-    public List<PavilionAuthor> findAll() {
-        return pavilionAuthorRepository.findAll();
-    }
-
-
-    /**
-     * @param pageable
-     * @return
-     */
-    public Page<PavilionAuthor> findAll(Pageable pageable) {
-        return pavilionAuthorRepository.findAll(pageable);
-    }
-
-
-    /**
      * @param id
      * @return
      */
@@ -62,18 +36,31 @@ public class PavilionAuthorService extends BaseService {
 
 
     /**
-     * @param id 记录id
-     * @return 根据id删除记录
+     * @param id
+     * @return
      */
     public ReturnObject delete(Long id) {
         pavilionAuthorRepository.delete(id);
         PavilionAuthor pavilionAuthor = pavilionAuthorRepository.getOne(id);
-        return commonDataService.getReturnType(pavilionAuthor == null, "记录删除成功", "记录删除失败");
+        return commonDataService.getReturnType(pavilionAuthor == null, DELETE_SUCCESS, DELETE_FAILURE);
     }
 
+
+
+
     /**
-     * @param recordId 记录id
-     * @param filePath 文件的路径
+     * @param pavilionAuthor
+     * @return 淇濆瓨淇℃伅
+     */
+    public ReturnObject save( PavilionAuthor pavilionAuthor) {
+        pavilionAuthor = pavilionAuthorRepository.save(pavilionAuthor);
+        return commonDataService.getReturnType(pavilionAuthor != null, SAVE_SUCCESS, SAVE_FAILURE);
+    }
+
+
+    /**
+     * @param filePath
+     * @param recordId
      */
     @Override
     public void writeUploadLog(String filePath, Long recordId) {

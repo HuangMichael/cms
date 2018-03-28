@@ -74,6 +74,20 @@ public class PavilionAuthorController extends BaseController {
 
 
 
+
+
+    /**
+     * @param pavilionAuthor 信息
+     * @return 保存展馆作者信息
+     */
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @ResponseBody
+    public ReturnObject save(PavilionAuthor pavilionAuthor) {
+        return pavilionAuthorService.save(pavilionAuthor);
+    }
+
+
+
     /**
      * @param request
      * @param response

@@ -85,8 +85,6 @@ public class UserService extends BaseService {
                 //将用户人员信息放入session.
                 HttpSession session = request.getSession();
                 session.setAttribute("currentUser", user);
-
-                log.info("user--------" + user.getAuthKey());
             }
         }
         return commonDataService.getReturnType(result, "用户登录成功", failMessage);

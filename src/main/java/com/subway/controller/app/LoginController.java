@@ -48,8 +48,10 @@ public class LoginController {
             request.getSession().invalidate();
         }
         modelMap.put("sysName", systemInfo.getDescription());
+        modelMap.put("logo", systemInfo.getLogoUrl());
         return "/index";
     }
+
     /**
      * @param request
      * @param userName 用户名
