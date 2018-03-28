@@ -1,0 +1,26 @@
+SELECT 
+    id,
+    eq_code,
+    eam_no,
+    description,
+    eq_model,
+    expected_year,
+    maintainer,
+    manage_level,
+    manager,
+    net_value,
+    original_value,
+    product_date,
+    product_factory,
+    purchase_date,
+    purchase_price,
+    run_date,
+    setup_date,
+    warranty_period,
+    t.equipments_classification_id eq_class_id,
+    t.vlocations_id location_id,
+    '01' AS auth_key,
+    running,
+    status
+FROM
+    dev.t_equipments t;
