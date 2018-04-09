@@ -32,19 +32,11 @@ public class TemplateService extends BaseService {
     @Autowired
     TemplateRepository templateRepository;
 
+
     /**
+     * @param id
      * @return
      */
-    public List<Template> findAll() {
-        return templateRepository.findAll();
-    }
-
-
-    public Page<Template> findAll(Pageable pageable) {
-        return templateRepository.findAll(pageable);
-    }
-
-
     public Template findById(Long id) {
         return templateRepository.getOne(id);
     }
