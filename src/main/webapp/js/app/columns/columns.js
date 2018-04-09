@@ -44,7 +44,6 @@ $(function () {
             showStatus: {
                 to: showStatus
             },
-
             showSiteName: {
                 to: showSiteName
             }

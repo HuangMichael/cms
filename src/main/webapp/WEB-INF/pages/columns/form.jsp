@@ -42,7 +42,7 @@
                 </div>
                 <label for="siteId" class="col-md-2 control-label">所属站点</label>
                 <div class="col-md-4">
-                    <input class="form-control" id="siteId" name="siteId" v-model="columns.siteId" required/>
+                    <input class="form-control" id="siteId" name="site.id" v-model="columns.site.id" required/>
                 </div>
             </div>
             <div class="form-group">

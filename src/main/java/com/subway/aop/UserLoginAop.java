@@ -1,6 +1,7 @@
 package com.subway.aop;
 
 
+import com.subway.columns.Columns;
 import com.subway.domain.log.UserLog;
 import com.subway.domain.user.User;
 import com.subway.domain.userLog.UserLogService;
@@ -70,4 +71,18 @@ public class UserLoginAop {
     }
 
 
+    /**
+     * @param joinPoint
+     */
+    @Before(value = "execution(* com.subway.columns.ColumnsController.save(..))")
+    public void writeAuthKeyBeforeSaveColumns(JoinPoint joinPoint) {
+        Object[] args = joinPoint.getArgs();
+        Columns columns = (Columns) args[0];
+        log.info(args[0].getClass().getName());
+        if (columns.getAuthKey() == null || columns.getAuthKey().equals("")) {
+            columns.setAuthKey("01");
+        }
+        columns.setStatus(ConstantUtils.STATUS_YES);
+        log.info("set authKey before save");
+    }
 }
