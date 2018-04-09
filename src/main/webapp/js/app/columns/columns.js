@@ -43,6 +43,10 @@ $(function () {
         converters: {
             showStatus: {
                 to: showStatus
+            },
+
+            showSiteName: {
+                to: showSiteName
             }
         }
     })

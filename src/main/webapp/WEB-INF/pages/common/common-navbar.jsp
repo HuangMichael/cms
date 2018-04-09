@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <header class="navbar clearfix" id="header">
     <div class="container">
         <div class="navbar-brand">
@@ -22,29 +22,6 @@
             <!-- /SIDEBAR COLLAPSE -->
         </div>
         <ul class="nav navbar-nav pull-right">
-
-            <%--<li class="dropdown" id="header-notification">--%>
-            <%--<a class="dropdown-toggle" data-toggle="dropdown" id="reportOrder" title="流程审批信息">--%>
-            <%--<i class="fa  fa-wrench" id="linkTag"></i>--%>
-            <%--<span class="badge" id="reportOrderSize"></span>--%>
-            <%--</a>--%>
-            <%--<ul class="dropdown-menu notification">--%>
-            <%--<li class="dropdown-title">--%>
-            <%--<span id="orderMsgCnt"><i class="fa fa-bell"></i></span>--%>
-            <%--</li>--%>
-            <%--<div id="orderBox"></div>--%>
-            <%--</ul>--%>
-            <%--</li>--%>
-
-
-            <%--<li class="dropdown" id="header-notification2">--%>
-            <%--<a class="dropdown-toggle" data-toggle="dropdown" id="expiredOrder" title="待办任务信息">--%>
-            <%--<i class="fa fa-warning"></i>--%>
-            <%--<span class="badge" id="expiredOrderSize"></span>--%>
-            <%--</a>--%>
-            <%--</li>--%>
-
-
             <li class="dropdown user" id="header-user">
                 <a onclick="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
                     <img alt="" src="${currentUser.photoUrl}"/>

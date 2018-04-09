@@ -259,9 +259,6 @@ Array.prototype.clear = function () {
 };
 
 
-
-
-
 Array.prototype.unique = function () {
     var n = {}, r = []; //n为hash表，r为临时数组
     for (var i = 0; i < this.length; i++) //遍历当前数组
@@ -482,6 +479,12 @@ var showTableName = function (value) {
 }
 
 
+var showSiteName = function (value) {
+    return value["name"];
+
+}
+
+
 /**
  * 显示上传下载
  */
@@ -537,7 +540,7 @@ var showCommandsBtn = function (column, row) {
 var showAddColsBtn = function (column, row) {
     tableId = row.app.tableConfig.id;
     rowId = row.id;
-    return "<button type='button' class='btn btn-xs btn-default command-edit' data-row-id='" + row.id + "' onclick='addSearchCols(" + rowId+ ")'><span class='fa fa-plus-square-o'></span></button> ";
+    return "<button type='button' class='btn btn-xs btn-default command-edit' data-row-id='" + row.id + "' onclick='addSearchCols(" + rowId + ")'><span class='fa fa-plus-square-o'></span></button> ";
 }
 
 /**

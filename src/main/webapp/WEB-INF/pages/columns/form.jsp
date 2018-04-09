@@ -18,11 +18,21 @@
             <div class="form-group">
                 <label for="beginTime" class="col-md-2 control-label">开始时间</label>
                 <div class="col-md-4">
-                    <input class="form-control" id="beginTime" name="beginTime" v-model="columns.beginTime" required/>
+                    <input class="form-control" id="beginTime" name="beginTime" v-model="columns.beginTime"
+
+                           onload="WdatePicker({dateFmt:'yyyy-MM-dd',isShowToday:false})"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowToday:false})"
+
+
+
+                           required/>
                 </div>
                 <label for="endTime" class="col-md-2 control-label">结束时间</label>
                 <div class="col-md-4">
-                    <input class="form-control" id="endTime" name="endTime" v-model="columns.endTime" required/>
+                    <input class="form-control" id="endTime" name="endTime" v-model="columns.endTime"
+                           onload="WdatePicker({dateFmt:'yyyy-MM-dd',isShowToday:false})"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd',isShowToday:false})"
+                           required/>
                 </div>
             </div>
             <div class="form-group">

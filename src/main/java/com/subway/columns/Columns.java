@@ -39,8 +39,6 @@ public class Columns implements Serializable {
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     private Columns parent;
 
-    @Column(length = 20)
-    private Long sortNo;
 
     @Column(length = 1, nullable = false)
     private String status;
