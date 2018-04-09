@@ -39,10 +39,6 @@ public class Template {
     @Column(length = 100, nullable = false)
     private String fileUrl; //模板名称
 
-
-    @Column(length = 20, nullable = false)
-    private String sortNo;//排序
-
     @Column(length = 1, nullable = false)
     private String status;//状态
 
