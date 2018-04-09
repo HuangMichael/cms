@@ -9,7 +9,6 @@
                 <th data-column-id="id" data-visible="false" data-identifier="true">序号</th>
                 <th data-column-id="resouceCode">资源编号</th>
                 <th data-column-id="resouceName">资源名称</th>
-                <th data-column-id="description">资源描述</th>
                 <th data-column-id="resourceUrl">资源路径</th>
                 <th data-column-id="appName">应用名称</th>
                 <th data-column-id="iconClass">资源样式</th>
@@ -28,9 +27,7 @@
                     <td>
                             ${r.resourceName}
                     </td>
-                    <td>
-                            ${r.description}
-                    </td>
+
                     <td>
                             ${r.resourceUrl}
                     </td>

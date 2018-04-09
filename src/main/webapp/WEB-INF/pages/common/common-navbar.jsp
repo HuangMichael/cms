@@ -6,7 +6,7 @@
         <div class="navbar-brand">
             <!-- COMPANY LOGO -->
             <a>
-                <img src="${sessionScope.logo}" alt="${sessionScope.sysName}" class="img-responsive" height="30"
+                <img src="/img/logo/logo.png" alt="${sessionScope.sysName}" class="img-responsive" height="30"
                      width="120">
             </a>
             <div class="visible-xs">
@@ -72,65 +72,4 @@
             showMessageBox("info", "数据加载成功");
         });
     }
-
-    $(function () {
-        $("#reportOrder").on("click", function () {
-            var num = $("#reportOrderSize").html();
-            var url = "/workOrderReportCart/findMyCart";
-            if (!isNaN(num)) {
-                url += "/" + num; //查询最近N条
-            } else {
-                return;
-            }
-            $.getJSON(url, function (data) {
-                var html = "";
-                for (var x = 0; x < data.length; x++) {
-                    html += "<li>";
-                    html += "<a javascript:void(0)>";
-                    html += '<span class="label label-success">' + (x + 1) + "</span>";
-                    html += '<span class="body">';
-                    html += '<span class="message">' + data[x]["vlocations"]["locName"] + "--" + data[x]["equipmentsClassification"]["description"] + "</span>";
-                    html += '<span class="time">';
-                    html += "<span></span>";
-                    html += "</span>";
-                    html += "</span>";
-                    html += "</a>";
-                    html += " </li>"
-                }
-                $("#orderMsgCnt").html(data.length + "个报修信息");
-                $("#orderBox").html(html)
-            })
-        });
-
-
-        $("#linkTag").on("click", function () {
-            var dataUrl = '/workOrderReportCart/list'
-            $("#main-content").load(dataUrl, function () {
-                $(this).removeData("url");
-            });
-
-        });
-        var expiredCount = getExpiredCount();
-
-        $("#expiredOrder").on("click", function () {
-            var url = "workOrderFix/list";
-            $("#main-content").load(url, function () {
-                $(this).removeData("url");
-                var formTab = $('#myTab li:eq(1) a');
-                formTab.trigger("click");
-                $("#expiredOrderSize").html(expiredCount);
-            });
-        });
-    });
-
-
-    /**
-     *
-     * @returns {number} 查询过期的工单数量
-     */
-    function getExpiredCount() {
-
-        return 0;
-    }
-
 </script>
