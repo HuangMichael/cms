@@ -93,11 +93,14 @@ public class TemplateService extends BaseService {
         freemarker.template.Template temp = cfg.getTemplate(myTemplate.getTemplateName(), "UTF-8");
         String fileUrl = myTemplate.getFileUrl();
         Map<String, Object> rootMap = new HashMap<>();
-        File docFile = new File(fileUrl);
+        File dir = new File(fileUrl);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File docFile = new File(fileUrl + myTemplate.getFileName());
         if (!docFile.exists()) {
             Writer docOut = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(docFile), "UTF-8"));// 完美解决乱码
             temp.process(rootMap, docOut);
-
             result = true;
             log.info("文件" + docFile + "不存在，已经重新生成");
         }
