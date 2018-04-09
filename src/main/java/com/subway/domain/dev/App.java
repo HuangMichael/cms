@@ -28,9 +28,6 @@ public class App {
     @JoinColumn(name = "table_config_id", referencedColumnName = "id", nullable = false)
     private TableConfig tableConfig;
 
-    @Column(length = 20)
-    private Long sortNo;//排序
-
     @Column(length = 1, nullable = false)
     private String status;//状态
 }

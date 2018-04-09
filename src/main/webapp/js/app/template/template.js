@@ -166,3 +166,11 @@ function edit(id) {
 function showUpload() {
     $("#uploadModal").modal("show");
 }
+
+/**
+ * 新建记录
+ */
+function add() {
+    vdm.$set("template", null);
+    $("#editModal").modal("show");
+}
