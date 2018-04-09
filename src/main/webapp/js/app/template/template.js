@@ -39,7 +39,8 @@ $(function () {
         },
         url: "/" + mainObject + "/data",
         formatters: {
-            "commands": showCommandsBtn
+            "commands": showCommandsBtn,
+            "genPage": showGenPageBtn
         },
         converters: {
             showStatus: {
@@ -124,6 +125,14 @@ function edit(id) {
 function add() {
     vdm.$set("template", null);
     $("#editModal").modal("show");
+}
+
+
+/**
+ * 生成页面
+ */
+function genPage(id) {
+    showMessageBox("info", "生成页面" + id);
 }
 
 

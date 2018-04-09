@@ -532,6 +532,17 @@ var showCommandsBtn = function (column, row) {
  * @param row
  * @returns {string}
  */
+var showGenPageBtn = function (column, row) {
+    return "<button type='button' class='btn btn-xs btn-default command-plus' data-row-id='" + row.id + "' onclick='genPage(" + row.id + ")'><span class='fa fa-pencil'></span></button> ";
+}
+
+
+/**
+ *
+ * @param column
+ * @param row
+ * @returns {string}
+ */
 var showAddColsBtn = function (column, row) {
     tableId = row.app.tableConfig.id;
     rowId = row.id;
