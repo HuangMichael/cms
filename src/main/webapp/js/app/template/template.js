@@ -132,7 +132,13 @@ function add() {
  * 生成页面
  */
 function genPage(id) {
-    showMessageBox("info", "生成页面" + id);
+    var url = "/template/genPage";
+    var data = {
+        templateId: id
+    };
+    $.post(url, data, function (data) {
+        showMessage(data.result, data["resultDesc"]);
+    })
 }
 
 

@@ -87,8 +87,8 @@ public class AutoGenerationJavaCode {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public void genCode(App app, List<TableColumnConfig> tableColumnConfigList) throws IOException, TemplateException, ClassNotFoundException,
-            SQLException {
+    public void genCode(App app, List<TableColumnConfig> tableColumnConfigList) throws IOException, TemplateException
+             {
         Configuration cfg = new Configuration(new Version("2.3.27-incubating"));
         cfg.setDefaultEncoding("UTF-8");
 

@@ -4,8 +4,10 @@ import com.subway.controller.common.BaseController;
 import com.subway.domain.app.MyPage;
 import com.subway.object.ReturnObject;
 import com.subway.service.app.ResourceService;
+import com.subway.service.dev.AppService;
 import com.subway.site.Site;
 import com.subway.utils.PageUtils;
+import freemarker.template.TemplateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.PageRequest;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +40,10 @@ public class TemplateController extends BaseController {
     TemplateService templateService;
     @Autowired
     TemplateSearchService templateSearchService;
+
+
+    @Autowired
+    AppService appService;
 
 
     /**
@@ -103,6 +110,21 @@ public class TemplateController extends BaseController {
     @ResponseBody
     public ReturnObject save(Template template) {
         return templateService.save(template);
+    }
+
+
+    /**
+     * @param templateId
+     * @return
+     * @throws IOException
+     * @throws TemplateException
+     */
+    @RequestMapping(value = "/genPage", method = RequestMethod.POST)
+    @ResponseBody
+    public ReturnObject genPage(@RequestParam("templateId") Long templateId) throws IOException, TemplateException {
+        //根据应用选择的应用配置信息
+        Boolean result = templateService.genPage(templateService.findById(templateId));
+        return commonDataService.getReturnType(result, "应用生成成功", "应用生成失败");
     }
 
 
