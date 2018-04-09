@@ -6,6 +6,7 @@
             <label for="name">站点名称</label>
         </div>
         <div class="col-md-4 col-sm-4 col-lg-4">
+            <input class="form-control" id="id" name="id" v-model="site.id"  type="hidden" required>
             <input class="form-control" id="name" name="name" v-model="site.name" required>
         </div>
         <div class="col-md-2 col-sm-2 col-lg-2">
@@ -34,6 +35,7 @@
         </div>
     </div>
 
+
     <div class="form-group">
         <div class="col-md-2 col-sm-2 col-lg-2">
             <label for="name">部署主机</label>
@@ -50,6 +52,14 @@
                 <option value="1" selected>启用</option>
                 <option value="0">禁用</option>
             </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-2 col-sm-2 col-lg-2">
+            <label for="name">部署目录</label>
+        </div>
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <input class="form-control" id="siteDir" name="siteDir" v-model="site.siteDir" required>
         </div>
     </div>
     <div class="modal-footer">

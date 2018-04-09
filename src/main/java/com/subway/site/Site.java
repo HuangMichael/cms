@@ -19,6 +19,10 @@ public class Site implements Serializable {
     @Column(length = 50, nullable = false)
     private String name; //站点名称
 
+
+    @Column(length = 20)
+    private String siteDir; //协会目录
+
     @Column(length = 20, nullable = false)
     private String domainName;//域名
 
