@@ -2,7 +2,9 @@ package com.subway.template;
 
 import com.subway.controller.common.BaseController;
 import com.subway.domain.app.MyPage;
+import com.subway.object.ReturnObject;
 import com.subway.service.app.ResourceService;
+import com.subway.site.Site;
 import com.subway.utils.PageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -79,6 +81,28 @@ public class TemplateController extends BaseController {
         List<Template> dataList = templateSearchService.findByConditions(param, 2);
         templateService.setDataList(dataList);
         templateService.exportExcel(request, response, docName, titles, colNames);
+    }
+
+
+    /**
+     * @param id
+     * @return 删除信息
+     */
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ReturnObject delete(@PathVariable("id") Long id) {
+        return templateService.delete(id);
+    }
+
+
+    /**
+     * @param template
+     * @return 保存模板信息
+     */
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @ResponseBody
+    public ReturnObject save(Template template) {
+        return templateService.save(template);
     }
 
 
